@@ -86,6 +86,17 @@ showQuestion();
   				$(this).find('.compareBox p').addClass('red');
   			}
   		}
+
+      if(compareSign == '='){
+       if(getA == getB){
+          console.log(true);
+          $(this).find('.compareBox p').addClass('green');
+        }else{
+          console.log(false);
+          $(this).find('.compareBox p').addClass('red');
+        }
+      }
+
   	})
   });
 
