@@ -2,7 +2,7 @@
 const headerText = 'Compare Numbers';
 const InstructionText = 'Drag either the greater than or less than symbols to complete these number sentences.';
 const headerInstructionColor = 'white';
-const numberOfQuestionToDisplay =5;
+const numberOfQuestionToDisplay =6;
 const min = 1000;
 const max = 2000;
 

@@ -129,14 +129,12 @@ font-weight: bold;
     font-size: 20px;
 }
 @media screen and (max-width: 500px) {
-.dropSuggestions{flex-wrap:wrap;}
 .logoWrapper img{width:100px;}
-.logoWrapper h2{font-size:20px; left: -10px;}
-#fillTheBlank{font-size: 20px;}
-.suggData{margin:3px; width:40px; height:40px;}
-.imgContainer img {width: 200px;}
-.suggestionContainer{right:20px;}
-.resultContainer{margin-top:15px;}
-
+#header .logo h3{font-size:20px;}
+.instruction {font-weight: normal;}
+.drag {width: 100px;}
+.compareContainer img{width: 100px;}
+.compareBox{width: 70px;}
+.compareContainer{margin-left:15px;}
 } 
 /*  // media quesry end here...*/
