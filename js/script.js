@@ -3,6 +3,7 @@ $(function() {
 $('.headerText').text(headerText);
 $('.headerText, .instruction').css({'color':headerInstructionColor});
 $('.instruction').text(InstructionText);
+$('body').css({'backgroundImage':bg})
 
 // display the question 
 let showQuestion = function(){
@@ -41,7 +42,7 @@ showQuestion();
 
 		     if($(this).children("p").length > 1){
 		     	$(this).children("p:nth-child(1)").remove(); 
-		     	console.log('workigng');
+		     	// console.log('workigng');
 		     }
 		      var drop_el = $(this).offset();
 		      var drag_el = ui.draggable.offset();
@@ -59,7 +60,14 @@ showQuestion();
 
   dragDrop();
 
+  let wellDoneAudio = new Audio('audio/welldone.mp3');
+  let tryAgainAudio = new Audio('audio/tryAgain.mp3');
+
+var correctAns = 0;
+var questionLength = numberOfQuestionToDisplay;
+
   $('#check').click(function(){
+    correctAns = 0;
   	let questionBox = $('.questionBox');
   	$.each(questionBox, function(i){
   		let sign;
@@ -69,40 +77,57 @@ showQuestion();
 
   		if(compareSign == '>'){
   			if(getA > getB){
-  				console.log(true);
+          correctAns++;
   				$(this).find('.compareBox p').addClass('green');
   			}else{
-  				console.log(false);
   				$(this).find('.compareBox p').addClass('red');
   			}
   		}
 
   		if(compareSign == '<'){
 		   if(getA < getB){
-  				console.log(true);
+  				correctAns++
   				$(this).find('.compareBox p').addClass('green');
   			}else{
-  				console.log(false);
   				$(this).find('.compareBox p').addClass('red');
   			}
   		}
 
       if(compareSign == '='){
        if(getA == getB){
-          console.log(true);
+          correctAns++
           $(this).find('.compareBox p').addClass('green');
         }else{
-          console.log(false);
           $(this).find('.compareBox p').addClass('red');
         }
       }
 
   	})
+
+    if(correctAns == questionLength){
+        $('.wellDone').fadeIn();
+        wellDoneAudio.play();
+        setTimeout(function(){
+            $('.wellDone').fadeOut();
+        },2000)
+    }else{
+       $('.tryAgain').fadeIn();
+       tryAgainAudio.play();
+       setTimeout(function(){
+          $('.tryAgain').fadeOut();
+       },1500)
+    }
+
+
+  });
+
+  $('#next').click(function(){
+		showQuestion();
+		dragDrop();
   });
 
   $('#reset').click(function(){
-		showQuestion();
-		dragDrop();
+    $('.compareBox').empty();
   });
 
 });  // end document ready function

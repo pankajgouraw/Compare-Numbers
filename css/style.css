@@ -6,7 +6,7 @@ body {
 	/*background: radial-gradient(#673AB7, #00968859);*/
 	background: #a9a9a9;
     font-family: cursive;
-	background-image: radial-gradient(#33e2bb, #2a4b48);
+	/*background-image: radial-gradient(#2166d2, #2a4b48);*/
     background-size: cover;
 	background-position: unset;
 	background-repeat: no-repeat;
@@ -20,19 +20,41 @@ body {
 	position: relative;
 
 }
+.wellDone{
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    display: none;
+    z-index:9;
+}
 
+.tryAgain{
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    display: none;
+    z-index:9;
+}
 #header .logo h3 {
 flex-grow: 1;
-text-align: right;
+text-align: center;
 font-family: sans-serif;
-font-size: 28px;
-color: #fff;
-margin-top:0px;
+font-size: 30px;
+color: #000;
+margin-top:10px;
+position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 #header .logo {
 margin: 0px auto;
 display: flex;
-align-items: center;
+/*align-items:center;*/
+justify-content: flex-end;
+padding-top:15px;
 }
 #header {
 padding: 15px;
@@ -41,7 +63,7 @@ padding: 15px;
 .innerWrapper{
 padding: 20px;
 display: flex;
-justify-content: center;
+justify-content: space-evenly;
 }
 
 .innerWrapper h2{
@@ -53,7 +75,7 @@ justify-content: center;
 
 .instruction{
     text-align: center;
-    color: #fff;
+    color: #000;
     font-family: sans-serif;
     padding-top: 15px;
 }
@@ -67,11 +89,13 @@ justify-content: center;
     justify-content: space-around;
     flex-direction: column;
 }
-
+.compareBox p{
+font-size: 22px !important;
+}
 .compareBox{
 	width: 120px;
 	height: 33px;
-    background: #ffffff40;
+    background: #85868440;;
 	margin: 10px;
 	display: flex;
 	justify-content: center;
@@ -113,28 +137,47 @@ justify-content: center;
 	cursor:pointer;
 }
 .green{
-    color: #fff;
+    color: #000;
     background: linear-gradient(#0d771140, #07450985), url(../img/bg.png);
     background-size: 100% 100%;
 }
 .red{
-    color: #fff;
+    color: #000;
     background: linear-gradient(#f443366e, rgba(244, 67, 54, 0.25)), url(../img/bg.png);
     background-size: 100% 100%;
 }
+/*.compareBox .questBoxB p{color: #000;}*/
+.questBoxA p{color:#000 !important;}
+.questBoxB p{color:#000 !important;}
 .quest p{
 font-weight: bold;
-    color: #fff;
+    color: #000;
     font-family: monospace;
-    font-size: 20px;
+    font-size: 30px;
 }
-@media screen and (max-width: 500px) {
+
+
+
+@media screen and (max-width: 600px) {
+    #header .logo h3{
+            left: 15px;
+    transform: translateX(0);
+    margin-top: 4px;font-size: 24px;
+    }
 .logoWrapper img{width:100px;}
-#header .logo h3{font-size:20px;}
-.instruction {font-weight: normal;}
+/*#header .logo h3{font-size:20px;}*/
+.instruction {font-weight: bold;
+    font-size: 20px;}
 .drag {width: 100px;}
 .compareContainer img{width: 100px;}
 .compareBox{width: 70px;}
 .compareContainer{margin-left:15px;}
 } 
+
+@media only screen and (max-width: 480px) and (min-width: 450px)  {
+.compareBox{width:100px;}
+.logoWrapper img {
+    width:125px;
+}
+}
 /*  // media quesry end here...*/
